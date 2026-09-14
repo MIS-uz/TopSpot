@@ -1,0 +1,15 @@
+/vendor
+/node_modules
+.git
+.env
+.env.*
+tests
+phpunit.xml
+.editorconfig
+.scribe
+.claude
+README.md
+LIBRARY_MANAGEMENT_SETUP_SUMMARY.md
+imp.txt
+demo
+samples
