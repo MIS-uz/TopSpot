@@ -24,7 +24,7 @@ $requiredDirectories = [
 
 foreach ($requiredDirectories as $directory) {
     if (!is_dir($directory)) {
-        mkdir($directory, 0755, true);
+        @mkdir($directory, 0755, true);
     }
 }
 
@@ -35,16 +35,14 @@ if (!file_exists($tmpStorage . '/installed') && file_exists(__DIR__ . '/../stora
 
 // Dynamically configure environment variables to write to /tmp if not already set
 $envDefaults = [
+    'APP_KEY'            => 'base64:ykzG6Wv3U4J7mP5L9qZ1sX8cN2vB4kF6rT8yU0wE2qA=',
     'VIEW_COMPILED_PATH' => $tmpStorage . '/framework/views',
-    'APP_CONFIG_CACHE'   => '/tmp/bootstrap/cache/config.php',
-    'APP_EVENTS_CACHE'   => '/tmp/bootstrap/cache/events.php',
-    'APP_PACKAGES_CACHE' => '/tmp/bootstrap/cache/packages.php',
-    'APP_ROUTES_CACHE'   => '/tmp/bootstrap/cache/routes.php',
-    'APP_SERVICES_CACHE' => '/tmp/bootstrap/cache/services.php',
     'CACHE_STORE'        => 'array',
     'CACHE_DRIVER'       => 'array',
     'SESSION_DRIVER'     => 'cookie',
     'LOG_CHANNEL'        => 'stderr',
+    'DB_CONNECTION'      => 'sqlite',
+    'DB_DATABASE'        => ':memory:',
 ];
 
 foreach ($envDefaults as $key => $value) {

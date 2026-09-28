@@ -6,7 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\DocsController;
 
 Route::get('/', function () {
-    return view('core-package::landing');
+    return view('welcome');
 })->name('home');
 
 // Authentication
